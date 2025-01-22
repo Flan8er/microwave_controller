@@ -1,5 +1,7 @@
-pub const TARGET_VENDOR_ID: u16 = 8137;
-pub const TARGET_PRODUCT_ID: u16 = 131;
+// pub const TARGET_VENDOR_ID: u16 = 8137;
+// pub const TARGET_PRODUCT_ID: u16 = 131;
+pub const TARGET_VENDOR_ID: u16 = 1027;
+pub const TARGET_PRODUCT_ID: u16 = 24577;
 pub const BAUD_RATE: u32 = 115_200;
 pub const DATA_BITS: serialport::DataBits = serialport::DataBits::Eight;
 pub const PARITY: serialport::Parity = serialport::Parity::None;

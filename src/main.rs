@@ -19,14 +19,14 @@ fn main() {
         }
     };
 
-    // Example commands
-    let command = Command::SetPower(30.);
-    let command_string = command.to_string();
+    // // Example commands
+    // let command = Command::SetPower(30.);
+    // let command_string = command.to_string();
 
-    match write_read(&mut *port, command_string) {
-        Ok(response) => println!("Response: {}", response),
-        Err(e) => eprintln!("Error: {}", e),
-    }
+    // match write_read(&mut *port, command_string) {
+    //     Ok(response) => println!("Response: {}", response),
+    //     Err(e) => eprintln!("Error: {}", e),
+    // }
 
     let command = Command::SetFrequency(50.);
     let command_string = command.to_string();
@@ -35,6 +35,14 @@ fn main() {
         Err(e) => eprintln!("Error: {}", e),
     }
 
+    let command = Command::GetFrequency;
+    let command_string = command.to_string();
+    match write_read(&mut *port, command_string) {
+        Ok(response) => println!("Response: {}", response),
+        Err(e) => eprintln!("Error: {}", e),
+    }
+
+    std::thread::sleep(Duration::from_secs(20));
     disconnect(port);
 }
 
@@ -85,6 +93,7 @@ fn autodetect_sg_port() -> Vec<SerialPortInfo> {
             process::exit(1);
         }
     };
+    println!("Available ports to connect to:\n{:#?}\n", available_ports);
 
     available_ports
         .into_iter()
