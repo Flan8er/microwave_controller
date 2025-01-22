@@ -57,7 +57,7 @@ fn connect_to_signal_generator() -> Option<Box<dyn SerialPort>> {
         .parity(PARITY)
         .flow_control(FLOW_CONTROL)
         .stop_bits(STOP_BITS)
-        .timeout(TIMEOUT)
+        .timeout(CONNECTION_TIMEOUT)
         .open()
     {
         Ok(port) => {
